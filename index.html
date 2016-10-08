@@ -7,28 +7,53 @@
     </head>
     <body>
         
-        <div class="row">
+        <div class="row jumbotron">
             <div class="col-md-8">
-                <iframe src="" height="100%" width="100%">hey</iframe>
+                <h2>Result Site</h2>
+                <iframe src="" height="100%" width="100%"></iframe>
             </div>
             <div class="col-md-4">
                 <div>
                     <a data-toggle="collapse" data-target="#expert">Experts:</a>
                     <div id="expert" class="collapse in">
-                        Some comment
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h5 class="list-group-item-heading">Expert 1</h5>
+                                <p class="list-group-item-text">Expert Comment 1</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h5 class="list-group-item-heading">Expert 2</h5>
+                                <p class="list-group-item-text">Expert Comment 2</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h5 class="list-group-item-heading">Expert 3</h5>
+                                <p class="list-group-item-text">Expert Comment 3</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div>
                     <a src="public" data-toggle="collapse" data-target="#public">General Public:</a>
-                    <div id="public" class="collapse">
-                        <ul>
-                            <li
+                    <div id="public" class="collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h5 class="list-group-item-heading">Public 1</h5>
+                                <p class="list-group-item-text">Public Comment 1</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h5 class="list-group-item-heading">Public 2</h5>
+                                <p class="list-group-item-text">Public Comment 2</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h5 class="list-group-item-heading">Public 3</h5>
+                                <p class="list-group-item-text">Public Comment 3</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div>
                     <form class="form-inline">
-                        <input type="text" placeholder="Comment">
+                        <input class="input-medium" type="text" placeholder="Some Comment">
                         <button type="submit" class="btn">Submit</button>
                     </form>
                 </div>
