@@ -101,7 +101,7 @@
     </head>
     <body>
         
-        <div class="container" style="background-color:#f1f1f1">
+        <div class="container" style="background-color:#f1f1f1;">
     
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -112,12 +112,12 @@
                     </div>
                     
                     <hr style="border-color:#cbcbcb">
-                    <p align="right">내용 기반 신뢰도 자동 분석 결과</p>
+                    <p align="right">내용 기반 신뢰도 자동 분석 결과: <span style="font-size:18px; color:rgb(235, 86, 65);"id="alpha">0</span></p>
                     
                     <div class="col-sm-12 col-md-12 " style="padding:20px;">
                     <h3 id="title"></h3>
                     <p id="url"></p>
-                    <p id="content"></p>
+                    <p id="content" style="margin-top:20px;"></p>
                 </div>
                     
                 </div>
@@ -171,7 +171,6 @@
                                 <div style="height:5px;background:#EB5641; float:left;" class="expert_good"></div>
                                 <div style="height:5px; background:#70B2FF; float:left;" class="expert_bad"></div>
                             </div>
-                            
                             <div style="width:100%; margin-bottom: 40px;">
                                 <div style="float:left;height:20px;" class="expert_good"><p><img class="inli" src="thumbsup.svg"> 믿을만해요 <span id="expert_good"></span></p></div>
                                 <div style="float:left;height:20px;" class="expert_bad"><p><img class="inli" src="thumbsdown.svg"> 의심스러워요 <span id="expert_bad"></span></p></div>
@@ -219,6 +218,7 @@
 	 					success : function(data){
 	 					    
 	 					   alert("등록이 완료되었습니다.");
+	 					   location.reload();
 	 					    
 	 					}
 			});
@@ -228,6 +228,22 @@
             $(document).ready(function(){
                 
                 $("#page_id").val(id);
+                
+                $.ajax({
+                // type을 설정합니다.
+                type : 'GET',
+                url : "http://40.74.136.158:3000/show/get_rating_com/" + id,
+                // 사용자가 입력하여 id로 넘어온 값을 서버로 보냅니다.
+              
+                // 성공적으로 값을 서버로 보냈을 경우 처리하는 코드입니다.
+                success : function (data) {
+                 
+                    $("#alpha").html(data[0]["score"] + "%");
+                 
+                }
+               });
+               
+                
                 
                 $.ajax({
                 // type을 설정합니다.
@@ -286,7 +302,8 @@
                          console.log(data[i]);
                         
                             var tmpl_data = { 
-                                "id": data[i]["_id"],
+                                "id": data[i]["email"],
+                                "sub": data[i]["sub_special"],
                                 "comment": data[i]["content"]
                             };
                              console.log(data[i]);
@@ -312,7 +329,7 @@
                            
                                 console.log(data[i]);
                                 var tmpl_data = {
-                                    "id": data[i]["_id"],
+                                    "id": data[i]["email"],
                                     "comment": data[i]["content"]
                                 };
                                 
@@ -335,7 +352,7 @@
                         <div class="container2 comment"> 
                             <img class="inli" src="doctor.svg">
                             <h4 class="inli">{%=o.id%}</h4>
-                            <p class="inli qual"> 가정의학과 전문의</p>
+                            <p class="inli qual"> {%=o.sub%}</p>
                             <img class="inli" style="position:relative; left:20px;" src="badge.svg">
                             <img class="inli" style="position:relative; left:20px;" src="badge.svg">
                             <img class="inli" style="position:relative; left:20px;" src="badge.svg">

@@ -584,27 +584,7 @@
             
           });
           
-          $(document).ready(function(){
-            $.ajax({
-                // type을 설정합니다.
-                type : 'GET',
-                url : "http://40.74.136.158:3000/show/hot/6",
-                // 사용자가 입력하여 id로 넘어온 값을 서버로 보냅니다.
-              
-                // 성공적으로 값을 서버로 보냈을 경우 처리하는 코드입니다.
-                success : function (data) {
-                 
-                 for (i = 0; i < data.length; i++){
-                   var page_id = data[i]["page_id"];
-                  
-                 }
-                    
-                           
-                }
-               });
-            
-            
-          });
+         
           
         </script>
     </body>
